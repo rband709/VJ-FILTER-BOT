@@ -4,7 +4,7 @@
 
 
 class script(object):
-    START_TXT = """<b>👋 سلام {} <a href=https://t.me/{}>{}</a>  |🥰😉 \n\n• به ربات دانلود موسیقی خوش آمدید ❤️\n\n\n🖍️ سازنده ربات : <a href=t.me/Farshidband >FﾑRSみɨの-BﾑŊの</a></b>"""
+    START_TXT = """<b>👋 سلام {} <a href=https://t.me/{}>{}</a>  |🥰😉 \n\n• به ربات دانلود موسیقی خوش آمدید ❤️\n\n\n🖍️ سازنده ربات : <a href=https://t.me/farshidband >FarshidBand</a></b>"""
 
     HELP_TXT = """<b>Hᴇʏ {}
 Hᴇʀᴇ Is Tʜᴇ Hᴇʟᴘ Fᴏʀ Mʏ Cᴏᴍᴍᴀɴᴅs.</b>"""
