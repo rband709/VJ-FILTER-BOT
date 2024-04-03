@@ -1,10 +1,10 @@
 # Don't Remove Credit @VJ_Botz
 # Subscribe YouTube Channel For Amazing Bot @Tech_VJ
 # Ask Doubt on telegram @KingVJ01
-
+#<a href=https://t.me/{}>{}</a>
 
 class script(object):
-    START_TXT = """<b>👋 سلام {} <a href=https://t.me/{}>{}</a>  |🥰😉 \n\n• به ربات دانلود موسیقی خوش آمدید ❤️\n\n🎧جهت دانلود آهنگ مورد علاقه خود\nنام خواننده و نام آهنگ به این وارد کنید.↙️\n\n➡️ /song (آرون افشار شب رویایی)\n\n🖍️ سازنده ربات : <a href=https://t.me/farshidband >FﾑRSみɨの-BﾑŊの</a></b>"""
+    START_TXT = """<b>👋 سلام {} |🥰😉 \n\n• به ربات دانلود موسیقی خوش آمدید ❤️\n\n🎧جهت دانلود آهنگ مورد علاقه خود\nنام خواننده و نام آهنگ به این وارد کنید.↙️\n\n➡️ /song (آرون افشار شب رویایی)\n\n🖍️ سازنده ربات : <a href=https://t.me/farshidband >FﾑRSみɨの-BﾑŊの</a></b>"""
 
     HELP_TXT = """<b>Hᴇʏ {}
 Hᴇʀᴇ Is Tʜᴇ Hᴇʟᴘ Fᴏʀ Mʏ Cᴏᴍᴍᴀɴᴅs.</b>"""
