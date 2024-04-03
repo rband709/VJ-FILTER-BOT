@@ -39,7 +39,7 @@ async def song(client, message):
         views = results[0]["views"]
     except Exception as e:
         print(str(e))
-        return await m.edit("Example: /song vaa vaathi song")
+        return await m.edit("ابتدا دستور /song را نوشته سپس نام آهنگ\nبدین صورت ↙️\n➡️ /song آرون افشار شب رویایی ")
                 
     await m.edit("**📀 در حال آپلود ...😊**")
     try:
@@ -84,7 +84,7 @@ def get_text(message: Message) -> [None,str]:
         return None
 
 
-@Client.on_message(filters.command(["video", "mp4"]))
+@Client.on_message(filters.command(["vidddeo", "m67p4"]))
 async def vsong(client, message: Message):
     urlissed = get_text(message)
     pablo = await client.send_message(message.chat.id, f"**𝙵𝙸𝙽𝙳𝙸𝙽𝙶 𝚈𝙾𝚄𝚁 𝚅𝙸𝙳𝙴𝙾** `{urlissed}`")
