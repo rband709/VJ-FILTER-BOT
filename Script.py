@@ -4,7 +4,7 @@
 #<a href=https://t.me/{}>{}</a>
 
 class script(object):
-    START_TXT = """<b>👋 سلام {} |🥰😉 \n\n• به ربات دانلود موسیقی خوش آمدید ❤️\n\n🎧جهت دانلود آهنگ مورد علاقه خود\nنام خواننده و نام آهنگ به این وارد کنید.↙️\n\n➡️ /song (آرون افشار شب رویایی)\n\n🖍️ سازنده ربات : <a href=https://t.me/farshidband >FﾑRSみɨの-BﾑŊの</a></b>"""
+    START_TXT = """<b>👋 سلام {} |🥰😉 \n\n• به ربات یوتیوب دانلودر خوش آمدید ❤️\n\n🎬جهت دانلود ویدیو مورد علاقه خود\nابتدا دستور /youtube را نوشته سپس \nدر ادامه لینک ویدیو مورنظر را قرار دهید مثال:\n➡️ /youtube ---لینک ویدیو موردنظر---\n➡️ /youtube http://www.youtube.com/watch?v=BieOHTC_7dY\n\n🖍️ سازنده ربات : <a href=https://t.me/farshidband >FﾑRSみɨの-BﾑŊの</a></b>"""
 
     HELP_TXT = """<b>Hᴇʏ {}
 Hᴇʀᴇ Is Tʜᴇ Hᴇʟᴘ Fᴏʀ Mʏ Cᴏᴍᴍᴀɴᴅs.</b>"""
