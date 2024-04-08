@@ -14,7 +14,7 @@ from youtubesearchpython import SearchVideos
 from yt_dlp import YoutubeDL
 
 
-@Client.on_message(filters.command(['song', 'mp3']) & filters.private)
+@Client.on_message(filters.command(['songfj']) & filters.private)
 async def song(client, message):
     user_id = message.from_user.id 
     user_name = message.from_user.first_name 
@@ -87,9 +87,9 @@ def get_text(message: Message) -> [None,str]:
 @Client.on_message(filters.command(["youtube"]))
 async def vsong(client, message: Message):
     urlissed = get_text(message)
-    pablo = await client.send_message(message.chat.id, f"**🎬 در حال بارگیری ویدیو ...** `{urlissed}`")
+    pablo = await client.send_message(message.chat.id, f"**🎬 در حال بارگیری ویدیو ...**\n `{urlissed}`")
     if not urlissed:
-        return await pablo.edit("Example: /video Your video link")     
+        return await pablo.edit("ابتدا دستور /youtube را نوشته سپس لینک\nسپس لینک موردنظر ویدیوتان را تایپ کنید\nبدین صورت ↙️\n➡️ /youtube ---لینک موردنظر---")     
     search = SearchVideos(f"{urlissed}", offset=1, mode="dict", max_results=1)
     mi = search.result()
     mio = mi["search_result"]
@@ -120,7 +120,7 @@ async def vsong(client, message: Message):
         return await pablo.edit_text(f"**𝙳𝚘𝚠𝚗𝚕𝚘𝚊𝚍 𝙵𝚊𝚒𝚕𝚎𝚍 𝙿𝚕𝚎𝚊𝚜𝚎 𝚃𝚛𝚢 𝙰𝚐𝚊𝚒𝚗..♥️** \n**Error :** `{str(e)}`")       
     
     file_stark = f"{ytdl_data['id']}.mp4"
-    capy = f"""**🎬 نام فایل :**\n [{thum}]({mo})\n**𝚁𝙴𝚀𝚄𝙴𝚂𝚃𝙴𝙳 𝙱𝚈 :** {message.from_user.mention}"""
+    capy = f"""**🎬 نام فایل :**\n [{thum}]({mo})\n© @IR_YoutubeDLBot"""
 
     await client.send_video(
         message.chat.id,
