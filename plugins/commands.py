@@ -24,6 +24,86 @@ logger = logging.getLogger(__name__)
 
 BATCH_FILES = {}
 
+@Client.on_callback_query()
+async def button(bot, cmd: CallbackQuery):
+	cb_data = cmd.data
+	if "refreshmeh" in cb_data:
+		if Config.UPDATES_CHANNEL:
+			invite_link = await bot.create_chat_invite_link(int(Config.UPDATES_CHANNEL))
+			try:
+				user = await bot.get_chat_member(int(Config.UPDATES_CHANNEL), cmd.message.chat.id)
+				if user.status == "kicked":
+					await cmd.message.edit(
+						text="Sorry Sir, You are Banned to use me. Contact my [Support Group](https://t.me/DevsZone).",
+						parse_mode="markdown",
+						disable_web_page_preview=True
+					)
+					return
+			except UserNotParticipant:
+				await cmd.message.edit(
+					text="**You Still Didn't Join ☹️, Please Join My Updates Channel to use this Bot!**\n\nDue to Overload, Only Channel Subscribers can use the Bot!",
+					reply_markup=InlineKeyboardMarkup(
+						[
+							[
+								InlineKeyboardButton("🤖 Join Updates Channel", url=invite_link.invite_link)
+							],
+							[
+								InlineKeyboardButton("🔄 Refresh 🔄", callback_data="refreshmeh")
+							]
+						]
+					),
+					parse_mode="markdown"
+				)
+				return
+			except Exception:
+				await cmd.message.edit(
+					text="Something went Wrong. Contact my [Support Group](https://t.me/DevsZone).",
+					parse_mode="markdown",
+					disable_web_page_preview=True
+				)
+				return
+		await cmd.message.edit(
+			text=Config.USAGE_WATERMARK_ADDER,
+			parse_mode="Markdown",
+			reply_markup=InlineKeyboardMarkup([[InlineKeyboardButton("Developer", url="https://t.me/AbirHasan2005"), InlineKeyboardButton("Support Group", url="https://t.me/DevsZone")], [InlineKeyboardButton("Bots Channel", url="https://t.me/Discovery_Updates")]]),
+			disable_web_page_preview=True
+		)
+
+	elif "lol" in cb_data:
+		await cmd.answer("Sir, that button not works XD\n\nPress Bottom Buttons to Set Position of Watermark!", show_alert=True)
+
+	elif "lel" in cb_data:
+		await cmd.answer("Sir, that button not works XD\n\nPress Bottom Buttons to Set Size of Watermark", show_alert=True)
+
+	elif cb_data.startswith("position_") or cb_data.startswith("size_"):
+		if Config.UPDATES_CHANNEL:
+			invite_link = await bot.create_chat_invite_link(int(Config.UPDATES_CHANNEL))
+			try:
+				user = await bot.get_chat_member(int(Config.UPDATES_CHANNEL), cmd.message.chat.id)
+				if user.status == "kicked":
+					await cmd.message.edit(
+						text="Sorry Sir, You are Banned to use me. Contact my [Support Group](https://t.me/DevsZone).",
+						parse_mode="markdown",
+						disable_web_page_preview=True
+					)
+					return
+			except UserNotParticipant:
+				await cmd.message.edit(
+					text="**You Still Didn't Join ☹️, Please Join My Updates Channel to use this Bot!**\n\nDue to Overload, Only Channel Subscribers can use the Bot!",
+					reply_markup=InlineKeyboardMarkup(
+						[
+							[
+								InlineKeyboardButton("🤖 Join Updates Channel", url=invite_link.invite_link)
+							],
+							[
+								InlineKeyboardButton("🔄 Refresh 🔄", callback_data="refreshmeh")
+							]
+						]
+					),
+					parse_mode="markdown"
+				)
+				return
+
 @Client.on_message(filters.command("start") & filters.incoming)
 async def start(client, message):
     if message.chat.type in [enums.ChatType.GROUP, enums.ChatType.SUPERGROUP]:
