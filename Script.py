@@ -416,13 +416,12 @@ Aᴠᴀɪʟᴀʙʟᴇ ᴄᴏᴍᴍᴀɴᴅs:
 
  
     RESTART_TXT = """
-<b>Bᴏᴛ Rᴇsᴛᴀʀᴛᴇᴅ !
-
-📅 Dᴀᴛᴇ : <code>{}</code>
-⏰ Tɪᴍᴇ : <code>{}</code>
-🌐 Tɪᴍᴇᴢᴏɴᴇ : <code>Asia/Kolkata</code>
-🛠️ Bᴜɪʟᴅ Sᴛᴀᴛᴜs: <code>v2.7.1 [ Sᴛᴀʙʟᴇ ]</code></b>"""
-
+<b>ربات با موفقیت ران شد. 😍
+📅 تاریخ : <code>{}</code>
+⏰ زمان : <code>{}</code>
+🌐 منطقه زمانی : <code>Asia/Kolkata</code>
+🛠️ ورژن کد : <code>v2.7.1 [ Sᴛᴀʙʟᴇ ]</code></b>
+🤖 ربات : @IR_YouTubeDLBot</b>"""
     LOGO = """
 
 BOT WORKING PROPERLY"""
