@@ -42,7 +42,7 @@ from pyrogram import idle
 from TechVJ.bot import TechVJBot
 from TechVJ.util.keepalive import ping_server
 from TechVJ.bot.clients import initialize_clients
-from plugins.Extra.force_sub_handler import handle_force_subscribe
+
 
 ppath = "plugins/*.py"
 files = glob.glob(ppath)
