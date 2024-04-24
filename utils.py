@@ -4,7 +4,7 @@
 
 import logging
 from pyrogram.errors import InputUserDeactivated, UserNotParticipant, FloodWait, UserIsBlocked, PeerIdInvalid
-from info import AUTH_CHANNEL, LONG_IMDB_DESCRIPTION, MAX_LIST_ELM, SHORTLINK_URL, SHORTLINK_API, IS_SHORTLINK, LOG_CHANNEL, TUTORIAL, GRP_LNK, CHNL_LNK, CUSTOM_FILE_CAPTION
+from info import AUTH_CHANNEL, LONG_IMDB_DESCRIPTION, MAX_LIST_ELM,   LOG_CHANNEL, TUTORIAL,  CUSTOM_FILE_CAPTION
 from imdb import Cinemagoer 
 import asyncio
 from pyrogram.types import Message, InlineKeyboardButton, InlineKeyboardMarkup
@@ -33,7 +33,7 @@ logger.setLevel(logging.INFO)
 BTN_URL_REGEX = re.compile(
     r"(\[([^\[]+?)\]\((buttonurl|buttonalert):(?:/{0,2})(.+?)(:same)?\))"
 )
-
+"""
 imdb = Cinemagoer() 
 TOKENS = {}
 VERIFIED = {}
@@ -119,6 +119,7 @@ async def get_poster(query, bulk=False, id=False, file=None):
         plot = movie.get('plot outline')
     if plot and len(plot) > 800:
         plot = plot[0:800] + "..."
+"""
 """
     return {
         'title': movie.get('title'),
@@ -317,7 +318,7 @@ def split_quotes(text: str) -> List:
         counter += 1
     else:
         return text.split(None, 1)
-
+"""
     # 1 to avoid starting quote, and counter is exclusive so avoids ending
     key = remove_escapes(text[1:counter].strip())
     # index will be in range, or `else` would have been executed and returned
@@ -450,8 +451,8 @@ def remove_escapes(text: str) -> str:
         else:
             res += text[counter]
     return res
-
-
+"""
+"""
 def humanbytes(size):
     if not size:
         return ""
@@ -494,7 +495,7 @@ async def get_shortlink(chat_id, link):
         shortzy = Shortzy(api_key=API, base_site=URL)
         link = await shortzy.convert(link)
         return link
-    
+    """
 async def get_tutorial(chat_id):
     settings = await get_settings(chat_id) #fetching settings for group
     if 'tutorial' in settings.keys():
