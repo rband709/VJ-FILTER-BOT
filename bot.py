@@ -25,23 +25,23 @@ logging.getLogger("aiohttp.web").setLevel(logging.ERROR)
 
 from pyrogram import Client, __version__
 from pyrogram.raw.all import layer
-from database.ia_filterdb import Media
-from database.users_chats_db import db
+# from database.ia_filterdb import Media
+# from database.users_chats_db import db
 from info import *
 from utils import temp
 from typing import Union, Optional, AsyncGenerator
 from pyrogram import types
 from Script import script 
-from datetime import date, datetime 
+# from datetime import date, datetime 
 import pytz
 from aiohttp import web
 from plugins import web_server
 
 import asyncio
 from pyrogram import idle
-from TechVJ.bot import TechVJBot
-from TechVJ.util.keepalive import ping_server
-from TechVJ.bot.clients import initialize_clients
+# from TechVJ.bot import TechVJBot
+# from TechVJ.util.keepalive import ping_server
+# from TechVJ.bot.clients import initialize_clients
 
 
 ppath = "plugins/*.py"
