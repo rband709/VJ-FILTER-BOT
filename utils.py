@@ -4,7 +4,7 @@
 
 import logging
 from pyrogram.errors import InputUserDeactivated, UserNotParticipant, FloodWait, UserIsBlocked, PeerIdInvalid
-from info import AUTH_CHANNEL, LONG_IMDB_DESCRIPTION, MAX_LIST_ELM,   LOG_CHANNEL, TUTORIAL,  CUSTOM_FILE_CAPTION
+from info import AUTH_CHANNEL, LONG_IMDB_DESCRIPTION, MAX_LIST_ELM, SHORTLINK_URL, SHORTLINK_API, IS_SHORTLINK, LOG_CHANNEL, TUTORIAL, GRP_LNK, CHNL_LNK, CUSTOM_FILE_CAPTION
 from imdb import Cinemagoer 
 import asyncio
 from pyrogram.types import Message, InlineKeyboardButton, InlineKeyboardMarkup
@@ -33,7 +33,7 @@ logger.setLevel(logging.INFO)
 BTN_URL_REGEX = re.compile(
     r"(\[([^\[]+?)\]\((buttonurl|buttonalert):(?:/{0,2})(.+?)(:same)?\))"
 )
-"""
+
 imdb = Cinemagoer() 
 TOKENS = {}
 VERIFIED = {}
@@ -119,8 +119,7 @@ async def get_poster(query, bulk=False, id=False, file=None):
         plot = movie.get('plot outline')
     if plot and len(plot) > 800:
         plot = plot[0:800] + "..."
-"""
-"""
+
     return {
         'title': movie.get('title'),
         'votes': movie.get('votes'),
@@ -149,7 +148,7 @@ async def get_poster(query, bulk=False, id=False, file=None):
         'plot': plot,
         'rating': str(movie.get("rating")),
         'url':f'https://www.imdb.com/title/tt{movieid}'
-    } """
+    }
 # https://github.com/odysseusmax/animated-lamp/blob/2ef4730eb2b5f0596ed6d03e7b05243d93e3415b/bot/utils/broadcast.py#L37
 
 async def broadcast_messages(user_id, message):
@@ -318,7 +317,7 @@ def split_quotes(text: str) -> List:
         counter += 1
     else:
         return text.split(None, 1)
-"""
+
     # 1 to avoid starting quote, and counter is exclusive so avoids ending
     key = remove_escapes(text[1:counter].strip())
     # index will be in range, or `else` would have been executed and returned
@@ -451,8 +450,8 @@ def remove_escapes(text: str) -> str:
         else:
             res += text[counter]
     return res
-"""
-"""
+
+
 def humanbytes(size):
     if not size:
         return ""
@@ -476,7 +475,35 @@ async def get_shortlink(chat_id, link):
         URL = SHORTLINK_URL
         API = SHORTLINK_API
     if URL == "api.shareus.io":
+        # method 1:
+        # https = link.split(":")[0] #splitting https or http from link
+        # if "http" == https: #if https == "http":
+        #     https = "https"
+        #     link = link.replace("http", https) #replacing http to https
+        # conn = http.client.HTTPSConnection("api.shareus.io")
+        # payload = json.dumps({
+        #   "api_key": "4c1YTBacB6PTuwogBiEIFvZN5TI3",
+        #   "monetization": True,
+        #   "destination": link,
+        #   "ad_page": 3,
+        #   "category": "Entertainment",
+        #   "tags": ["trendinglinks"],
+        #   "monetize_with_money": False,
+        #   "price": 0,
+        #   "currency": "INR",
+        #   "purchase_note":""
         
+        # })
+        # headers = {
+        #   'Keep-Alive': '',
+        #   'Content-Type': 'application/json'
+        # }
+        # conn.request("POST", "/generate_link", payload, headers)
+        # res = conn.getresponse()
+        # data = res.read().decode("utf-8")
+        # parsed_data = json.loads(data)
+        # if parsed_data["status"] == "success":
+        #   return parsed_data["link"]
     #method 2
         url = f'https://{URL}/easy_api'
         params = {
@@ -495,7 +522,7 @@ async def get_shortlink(chat_id, link):
         shortzy = Shortzy(api_key=API, base_site=URL)
         link = await shortzy.convert(link)
         return link
-    """
+    
 async def get_tutorial(chat_id):
     settings = await get_settings(chat_id) #fetching settings for group
     if 'tutorial' in settings.keys():
@@ -506,7 +533,7 @@ async def get_tutorial(chat_id):
     else:
         TUTORIAL_URL = TUTORIAL
     return TUTORIAL_URL
-        """
+        
 async def get_verify_shorted_link(link):
     API = SHORTLINK_API
     URL = SHORTLINK_URL
@@ -552,7 +579,7 @@ async def get_verify_shorted_link(link):
         except Exception as e:
             logger.error(e)
             return f'{URL}/api?api={API}&link={link}'
-"""
+
 async def check_token(bot, userid, token):
     user = await bot.get_users(userid)
     if not await db.is_user_exist(user.id):
@@ -608,7 +635,7 @@ async def check_verification(bot, userid):
     else:
         return False
     
-    """
+    
 async def send_all(bot, userid, files, ident, chat_id, user_name, query):
     settings = await get_settings(chat_id)
     if 'is_shortlink' in settings.keys():
@@ -659,10 +686,7 @@ async def send_all(bot, userid, files, ident, chat_id, user_name, query):
         await query.answer('Hᴇʏ, Sᴛᴀʀᴛ Bᴏᴛ Fɪʀsᴛ Aɴᴅ Cʟɪᴄᴋ Sᴇɴᴅ Aʟʟ', show_alert=True)
     except Exception as e:
         await query.answer('Hᴇʏ, Sᴛᴀʀᴛ Bᴏᴛ Fɪʀsᴛ Aɴᴅ Cʟɪᴄᴋ Sᴇɴᴅ Aʟʟ', show_alert=True)
- """
-
-
- """      
+        
 async def get_cap(settings, remaining_seconds, files, query, total_results, search):
     # Aᴅᴅᴇᴅ Bʏ @creatorrio
     if settings["imdb"]:
@@ -721,4 +745,3 @@ async def get_cap(settings, remaining_seconds, files, query, total_results, sear
         for file in files:
             cap += f"<b>📁 <a href='https://telegram.me/{temp.U_NAME}?start=files_{file.file_id}'>[{get_size(file.file_size)}] {' '.join(filter(lambda x: not x.startswith('[') and not x.startswith('@') and not x.startswith('www.'), file.file_name.split()))}\n\n</a></b>"
     return cap
-"""
