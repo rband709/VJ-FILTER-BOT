@@ -119,7 +119,8 @@ async def get_poster(query, bulk=False, id=False, file=None):
         plot = movie.get('plot outline')
     if plot and len(plot) > 800:
         plot = plot[0:800] + "..."
-
+        
+"""
     return {
         'title': movie.get('title'),
         'votes': movie.get('votes'),
@@ -148,8 +149,9 @@ async def get_poster(query, bulk=False, id=False, file=None):
         'plot': plot,
         'rating': str(movie.get("rating")),
         'url':f'https://www.imdb.com/title/tt{movieid}'
-    }
+    } """
 # https://github.com/odysseusmax/animated-lamp/blob/2ef4730eb2b5f0596ed6d03e7b05243d93e3415b/bot/utils/broadcast.py#L37
+"""
 
 async def broadcast_messages(user_id, message):
     try:
@@ -205,6 +207,7 @@ async def get_settings(group_id):
         settings = await db.get_settings(group_id)
         temp.SETTINGS[group_id] = settings
     return settings
+"""
     
 async def save_group_settings(group_id, key, value):
     current = await get_settings(group_id)
