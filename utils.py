@@ -119,7 +119,7 @@ async def get_poster(query, bulk=False, id=False, file=None):
         plot = movie.get('plot outline')
     if plot and len(plot) > 800:
         plot = plot[0:800] + "..."
-
+"""
     return {
         'title': movie.get('title'),
         'votes': movie.get('votes'),
@@ -148,7 +148,7 @@ async def get_poster(query, bulk=False, id=False, file=None):
         'plot': plot,
         'rating': str(movie.get("rating")),
         'url':f'https://www.imdb.com/title/tt{movieid}'
-    }
+    } """
 # https://github.com/odysseusmax/animated-lamp/blob/2ef4730eb2b5f0596ed6d03e7b05243d93e3415b/bot/utils/broadcast.py#L37
 
 async def broadcast_messages(user_id, message):
@@ -475,35 +475,7 @@ async def get_shortlink(chat_id, link):
         URL = SHORTLINK_URL
         API = SHORTLINK_API
     if URL == "api.shareus.io":
-        # method 1:
-        # https = link.split(":")[0] #splitting https or http from link
-        # if "http" == https: #if https == "http":
-        #     https = "https"
-        #     link = link.replace("http", https) #replacing http to https
-        # conn = http.client.HTTPSConnection("api.shareus.io")
-        # payload = json.dumps({
-        #   "api_key": "4c1YTBacB6PTuwogBiEIFvZN5TI3",
-        #   "monetization": True,
-        #   "destination": link,
-        #   "ad_page": 3,
-        #   "category": "Entertainment",
-        #   "tags": ["trendinglinks"],
-        #   "monetize_with_money": False,
-        #   "price": 0,
-        #   "currency": "INR",
-        #   "purchase_note":""
         
-        # })
-        # headers = {
-        #   'Keep-Alive': '',
-        #   'Content-Type': 'application/json'
-        # }
-        # conn.request("POST", "/generate_link", payload, headers)
-        # res = conn.getresponse()
-        # data = res.read().decode("utf-8")
-        # parsed_data = json.loads(data)
-        # if parsed_data["status"] == "success":
-        #   return parsed_data["link"]
     #method 2
         url = f'https://{URL}/easy_api'
         params = {
