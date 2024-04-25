@@ -1,5 +1,5 @@
 from __future__ import unicode_literals
-
+from info import LOG_CHANNEL, DUMP_GROUP, LOG_GROUP
 import os, bs4, requests, asyncio, math, time, wget
 from pyrogram import filters, Client as Dxbotz
 from pyrogram.types import Message
@@ -49,14 +49,14 @@ async def link_handler(Dxbotz, message):
                  dump_file=await message.reply_photo(f"https://ddinstagram.com{content_value}")
         except Exception as e:
             await message.reply_text(f"https://ddinstagram.com{content_value}")
-            if Config.LOG_GROUP:
-               await Dxbotz.send_message(Config.LOG_GROUP,f"Instagram {e} {content_value}")
+            if info.LOG_GROUP:
+               await Dxbotz.send_message(info.LOG_GROUP,f"Instagram {e} {content_value}")
             ##optinal 
             await message.reply(f"400: Sorry, Unable To Find It  try another or report it  to @dxziyan")
 
         finally:
             if 'dump_file' in locals():
-               if Config.DUMP_GROUP:
-                  await dump_file.forward(Config.DUMP_GROUP)
+               if info.DUMP_GROUP:
+                  await dump_file.forward(info.DUMP_GROUP)
             await m.delete()
                 
